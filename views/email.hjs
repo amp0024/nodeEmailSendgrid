@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<style>
+		h1 {
+			font-weight: bold;
+		}
+	</style>
+	
+	<body>
+		<h1>Thanks, {{ firstName }}</h1>
+		
+	</body>
+</html>
