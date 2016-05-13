@@ -17,12 +17,14 @@ var template = fs.readFileSync('./views/email.hjs', 'utf-8');
 // compile the template
 var compiledTemplate = Hogan.compile(template);
 
-
-/* GET home page. */
 router.get('/', function(req, res, next) {
+  res.render('../views/index.hjs');
+});
+/* GET home page. */
+router.get('/send', function(req, res, next) {
   
 	sendgrid.send({
-	  to:       recEmailAddress,
+	  to:       'contact@milehighbaseball.com',
 	  from:     'noreply@milehighbaseball.com',
 	  subject:  'Hello World',
 	  html:     compiledTemplate.render({firstName: 'Adam'})

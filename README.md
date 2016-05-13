@@ -115,5 +115,58 @@ Setting up hogan complier
 	// compile the template
 	var compiledTemplate = Hogan.compile(template);
 
-3- add into my html of sendgrid.send main route
+3- add compiled template into html of sendgrid.send main route in index.js
+
+Problems...
+Developing and formating emails can be a pain. You basically will have to code and then send emails to tell how your email is looking etc.
+
+To solve...
+We need a tool to help develop professional emails that are clean accross all email providers.
+
+To add styles you need to inline all your css...which is a giant pain so use an inliner tool.
+
+Gives you: 
+Responsive classes - columns etc.
+Templates  
+http://foundation.zurb.com/emails/email-templates.html
+Inliner
+
+http://foundation.zurb.com/emails/inliner.html
+
+	<!DOCTYPE html>
+	<html>
+		<style>
+			h1 {
+				font-weight: bold;
+			}
+		</style>
+		
+		<body>
+			<h1>Thanks, {{ firstName }}</h1>
+			
+		</body>
+	</html>
+
+Install Zurb foundation cli stack
+	npm install --global foundation-cli
+
+Create a new email project
+
+	foundation new --framework {filename}
+
+cd into your new project structure
+
+paste in your desired template into /src/pages/index.html
+
+you can then begin to develop your email in nice HTML structure
+
+	$ foundation watch
+
+will launch your email in a browser to have a live environment development workflow
+
+	$ npm run build
+
+this will build your file structure and create a build file in the route of your file.
+
+from there we will copy the entire inlined html file and paste it into our sendgrid server.
 
